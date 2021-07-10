@@ -11,7 +11,7 @@ jobs:
     #
     steps:
       # Indica la acción de tercero que nos permite github.
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       # El nombre de la tarea
       - name: Mi primer paso.
       # ejecutando un comando, en este caso el echo y mostrando variables.
