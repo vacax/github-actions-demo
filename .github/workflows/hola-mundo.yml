@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-20.04
     #
     steps:
-      # Indica la acción de tercero que nos permite github.
-      - uses: actions/checkout@v2
       # El nombre de la tarea
       - name: Mi primer paso.
+      # Indica la acción de tercero que nos permite github.
+      - uses: actions/checkout@v2
       # ejecutando un comando, en este caso el echo y mostrando variables.
       - run: echo "Hola Mundo desde ${{github.workflow}} disparado por el evento ${{github.event_name}} por ${{github.actor}}"
