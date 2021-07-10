@@ -2,17 +2,23 @@
 name: Hola Mundo WorkFlow
 # Indica el evento que iniciará el workflow, puede estar en [] para indicar más de un evento.
 on: push
-#Est
+#
 jobs:
   #Indica el nombre del jobs, no es parte de los esquemas de github actions
   mi-primer-job:
     #Indica el nombre de la instancia que estaremos utilizando para ejecutar nuestras acciones
     runs-on: ubuntu-20.04
-    #
+    # Los pasos que estaremos ejecutando para un job.
     steps:
       # El nombre de la tarea
       - name: Mi primer paso.
       # Indica la acción de tercero que nos permite github.
         uses: actions/checkout@v2
       # ejecutando un comando, en este caso el echo y mostrando variables.
-      - run: echo "Hola Mundo desde ${{github.workflow}} disparado por el evento ${{github.event_name}} por ${{github.actor}}"
+        run: echo "Hola Mundo desde ${{github.workflow}} disparado por el evento ${{github.event_name}} por ${{github.actor}}"
+      - name: Leyendo variables de ambientes.
+        env:
+          JOB_CONTEXT: ${{toJson(job)}}
+        run: |
+          echo "El Job se ejecuto: $JOB_CONTEXT"
+          echo "Completado!...."
